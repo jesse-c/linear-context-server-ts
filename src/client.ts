@@ -93,6 +93,14 @@ async function main() {
     const resources = await client.listResources({ type: "issue" });
     console.log(resources);
 
+    // Test list_issues tool
+    console.log("\nTesting list_issues tool:");
+    const listResult = await client.callTool({
+      name: "list_issues",
+      arguments: {},
+    });
+    console.log(listResult);
+
     // Create a test issue
     const create_issue = false;
     if (create_issue) {

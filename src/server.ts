@@ -23,6 +23,7 @@ if (!linearApiKey) {
 
 // Tools
 const CREATE_ISSUE = "create_issue";
+const LIST_ISSUES = "list_issues";
 const TOOLS: Tool[] = [
   {
     name: CREATE_ISSUE,
@@ -34,6 +35,14 @@ const TOOLS: Tool[] = [
         description: { type: "string" },
       },
       required: ["title"],
+    },
+  },
+  {
+    name: LIST_ISSUES,
+    description: "List all Linear issues assigned to me",
+    inputSchema: {
+      type: "object",
+      properties: {},
     },
   },
 ];
@@ -140,6 +149,28 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const name = request.params.name;
 
   switch (name) {
+    case LIST_ISSUES: {
+      const issues = await getMyIssues();
+      const issuesData = await Promise.all(
+        issues.map(async (issue) => ({
+          id: issue.identifier,
+          title: issue.title,
+          state: (await issue.state)?.name || "Unknown",
+          url: issue.url,
+        }))
+      );
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(issuesData, null, 2),
+          } as TextContent,
+        ],
+        isError: false,
+      } as CallToolResult;
+    }
+
     case CREATE_ISSUE: {
       const args = request.params.arguments as {
         title: string;
