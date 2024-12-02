@@ -2,6 +2,15 @@
 
 A Model Context Protocol server for Linear.
 
+## Examples
+
+### Listing issues assigned to me
+![Listing assigned issues](https://github.com/user-attachments/assets/11a41e9c-10ed-4cd4-a028-969708a9e389)
+
+### Creating an issue
+![Creating an issue](https://github.com/user-attachments/assets/d898e55e-17d2-4a51-82b8-2f291746ebd9)
+![Created issue](https://github.com/user-attachments/assets/05761309-f3f4-4945-a7b0-15e98df9aa9d)
+
 ## Development
 
 Install dependencies:
