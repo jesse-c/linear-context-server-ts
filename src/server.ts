@@ -13,7 +13,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { config as dotenvConfig } from "dotenv";
 import { Issue, LinearClient } from "@linear/sdk";
-import { TOOLS, CREATE_ISSUE, LIST_ISSUES, LIST_TEAMS } from './tools.js';
+import { TOOLS, CREATE_ISSUE, LIST_ISSUES, LIST_TEAMS, SELF_IDENTIFIER } from './tools.js';
 
 // Load environment variables
 dotenvConfig();
@@ -178,7 +178,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       const { title, description, assignee } = args;
 
       let assigneeId: string | undefined;
-      if (assignee === "me") {
+      if (assignee === SELF_IDENTIFIER) {
         const me = await linearClient.viewer;
         assigneeId = me.id;
       }

@@ -3,6 +3,8 @@ export const CREATE_ISSUE = "create_issue";
 export const LIST_ISSUES = "list_issues";
 export const LIST_TEAMS = "list_teams";
 
+export const SELF_IDENTIFIER = "me";
+
 // Definitions
 export const TOOLS = [
   {
@@ -11,11 +13,17 @@ export const TOOLS = [
     inputSchema: {
       type: "object",
       properties: {
-        title: { type: "string" },
-        description: { type: "string" },
+        title: {
+          type: "string",
+          description: "Title of the issue",
+        },
+        description: {
+          type: "string",
+          description: "Description of the issue",
+        },
         assignee: {
           type: "string",
-          description: "Set to 'me' to assign to self",
+          description: `Set to '${ SELF_IDENTIFIER }' to assign to self`,
         },
       },
       required: ["title"],
@@ -27,6 +35,7 @@ export const TOOLS = [
     inputSchema: {
       type: "object",
       properties: {},
+      required: [],
     },
   },
   {
@@ -35,6 +44,7 @@ export const TOOLS = [
     inputSchema: {
       type: "object",
       properties: {},
+      required: [],
     },
   },
 ];
