@@ -48,8 +48,11 @@ You can create a Personal API Key at [https://linear.app/your-team-name/settings
 
 ### Automatic
 
+> [!TIP]
+> `.env` files are supported.
+
 ```shell
-npm run configure [--force] [--name=<server-name>]
+LINEAR_API_KEY=<your-linear-api-key> npm run configure [--force] [--name=<server-name>]
 ```
 
 ### Manual
@@ -67,7 +70,7 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
         "/<path-to-folder>/linear-context-server-ts/build/server.js"
       ],
       "env": {
-        "LINEAR_API_KEY": <linear-api-key>
+        "LINEAR_API_KEY": <your-linear-api-key>
       }
     }
   }
