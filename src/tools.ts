@@ -1,5 +1,6 @@
 // Names
 export const CREATE_ISSUE = "create_issue";
+export const CREATE_COMMENT = "create_comment";
 export const LIST_ISSUES = "list_issues";
 export const LIST_TEAMS = "list_teams";
 
@@ -27,6 +28,24 @@ export const TOOLS = [
         },
       },
       required: ["title"],
+    },
+  },
+  {
+    name: CREATE_COMMENT,
+    description: "Create a new comment on an existing Linear issue.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        id: {
+          type: "string",
+          description: "ID of the existing Linear issue.",
+        },
+        body: {
+          type: "string",
+          description: "Body of the comment",
+        }
+      },
+      required: ["id", "body"],
     },
   },
   {

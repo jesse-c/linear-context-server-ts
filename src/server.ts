@@ -13,7 +13,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { config as dotenvConfig } from "dotenv";
 import { Issue, LinearClient } from "@linear/sdk";
-import { TOOLS, CREATE_ISSUE, LIST_ISSUES, LIST_TEAMS, SELF_IDENTIFIER } from './tools.js';
+import { TOOLS, CREATE_ISSUE, CREATE_COMMENT, LIST_ISSUES, LIST_TEAMS, SELF_IDENTIFIER } from './tools.js';
 
 // Load environment variables
 dotenvConfig();
@@ -201,6 +201,36 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       });
 
       // Return the created issue data
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(response, null, 2),
+          } as TextContent,
+        ],
+        isError: false,
+      } as CallToolResult;
+    }
+
+    case CREATE_COMMENT: {
+      const args = request.params.arguments as {
+        id: string;
+        body: string;
+      };
+      const { id, body } = args;
+
+      // Get the issue first
+      const issue = await linearClient.issue(id);
+      if (!issue) {
+        throw new Error(`Issue ${id} not found`);
+      }
+
+      // Create the comment
+      const response = await linearClient.createComment({
+        issueId: issue.id,
+        body: body,
+      });
+
       return {
         content: [
           {

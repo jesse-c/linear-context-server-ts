@@ -15,6 +15,14 @@ Create a new Linear issue.
 - `description` (string): Description of the issue
 - `assignee` (string): Set to 'me' to assign to self
 
+### `create_comment`
+Create a new comment on an existing Linear issue.
+
+**Parameters**
+
+- `id` (string*): ID of the existing Linear issue.
+- `body` (string*): Body of the comment
+
 ### `list_issues`
 List all Linear issues assigned to me.
 
