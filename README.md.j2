@@ -3,10 +3,21 @@
 A Model Context Protocol server for Linear.
 
 ## Tools
+> [!IMPORTANT]
+> * means required.
 {% for tool in tools %}
 ### `{{ tool.name }}`
 {{ tool.description }}
-{% endfor %}
+
+**Parameters**
+{% if (tool.inputSchema.properties | length > 0) %}
+{%- for paramName, param in tool.inputSchema.properties %}
+- `{{ paramName }}` ({{ param.type }}{% if tool.inputSchema.required and paramName in tool.inputSchema.required %}*{% endif %}): {{ param.description }}
+{%- endfor %}
+{% else %}
+N/A
+{% endif %}
+{%- endfor %}
 
 ## Examples
 

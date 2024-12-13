@@ -26,7 +26,7 @@ async function generate() {
       tools: TOOLS.map(tool => ({
         name: tool.name,
         description: tool.description,
-        params: Object.keys(tool.inputSchema.properties || {})
+        inputSchema: tool.inputSchema
       }))
     };
 

@@ -3,15 +3,31 @@
 A Model Context Protocol server for Linear.
 
 ## Tools
+> [!IMPORTANT]
+> * means required.
 
 ### `create_issue`
 Create a new Linear issue.
 
+**Parameters**
+
+- `title` (string*): Title of the issue
+- `description` (string): Description of the issue
+- `assignee` (string): Set to 'me' to assign to self
+
 ### `list_issues`
 List all Linear issues assigned to me.
 
+**Parameters**
+
+N/A
+
 ### `list_teams`
 List all Linear teams I have access to.
+
+**Parameters**
+
+N/A
 
 
 ## Examples
