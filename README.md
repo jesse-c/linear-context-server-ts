@@ -29,7 +29,6 @@ List all Linear teams I have access to.
 
 N/A
 
-
 ## Examples
 
 ### Listing issues assigned to me
@@ -39,26 +38,13 @@ N/A
 ![Creating an issue](https://github.com/user-attachments/assets/d898e55e-17d2-4a51-82b8-2f291746ebd9)
 ![Created issue](https://github.com/user-attachments/assets/05761309-f3f4-4945-a7b0-15e98df9aa9d)
 
-## Development
-
-Install dependencies:
-```bash
-npm install
-```
-
-Build the server:
-```bash
-npm run build
-```
-
-For development with auto-rebuild:
-```bash
-npm run watch
-```
-
-## Installation
+## How to use
 
 To use with Claude Desktop, add the server config.
+
+### Linear API key
+
+You can create a Personal API Key at [https://linear.app/your-team-name/settings/account/security](https://linear.app/<team>/settings/account/security). Remember to replace `your-team-name` with the correct value.
 
 ### Automatic
 
@@ -86,6 +72,23 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
     }
   }
 }
+```
+
+## Development
+
+Install dependencies:
+```bash
+npm install
+```
+
+Build the server:
+```bash
+npm run build
+```
+
+For development with auto-rebuild:
+```bash
+npm run watch
 ```
 
 ### Debugging
