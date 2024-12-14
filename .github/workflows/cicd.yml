@@ -36,3 +36,11 @@ jobs:
       run: |
         npm run readme
         git diff --exit-code
+
+    - name: Setup Deno
+      uses: denoland/setup-deno@v2
+      with:
+        deno-version: v2.x
+
+    - name: Check formatting
+      run: deno fmt --check src
