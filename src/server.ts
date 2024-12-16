@@ -50,7 +50,7 @@ const packageJson = JSON.parse(
 
 const server = new Server(
   {
-    name: "linear-context-server-ts",
+    name: "linear-context-server",
     version: packageJson.version,
   },
   {

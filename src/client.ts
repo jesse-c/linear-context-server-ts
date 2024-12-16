@@ -70,7 +70,7 @@ async function main() {
     // Create the client and connect
     client = new Client(
       {
-        name: "linear-context-server-ts",
+        name: "linear-context-server",
         version: "0.1.0",
       },
       {
