@@ -2,7 +2,7 @@
   "name": "@kljn/linear-context-server",
   "version": "0.3.0",
   "description": "A Model Context Protocol server",
-  "private": true,
+  "private": false,
   "type": "module",
   "bin": {
     "linear-context-server": "build/server.js"
