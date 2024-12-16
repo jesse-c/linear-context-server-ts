@@ -1,6 +1,6 @@
 {
   "name": "@kljn/linear-context-server",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A Model Context Protocol server",
   "private": true,
   "type": "module",
