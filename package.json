@@ -22,7 +22,7 @@
     "readme": "tsx scripts/readme.ts"
   },
   "dependencies": {
-    "@linear/sdk": "^33.0.0",
+    "@linear/sdk": "^35.0.0",
     "@modelcontextprotocol/sdk": "1.0.3",
     "axios": "^1.7.9",
     "dotenv": "^16.4.7"
